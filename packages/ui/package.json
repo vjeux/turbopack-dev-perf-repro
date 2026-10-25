@@ -1,0 +1,13 @@
+{
+  "name": "@repro/ui",
+  "version": "1.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./*": "./dist/*.js"
+  },
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19"
+  }
+}

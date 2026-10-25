@@ -1,0 +1,39 @@
+import { jsx, jsxs } from "react/jsx-runtime";
+import { useMemo, useState } from "react";
+import { tokens } from "./tokens.js";
+import { C0 } from "./c0.js";
+import { C1 } from "./c1.js";
+
+const styles = {
+  root: { display: "flex", gap: tokens.space[6], padding: "4px 8px", borderRadius: tokens.radius[5], alignItems: "center" },
+  label: { fontSize: 11, lineHeight: "18px", color: tokens.color.text },
+  hint: { fontSize: 11, color: tokens.color.muted },
+  item: { padding: "2px 4px", borderBottom: "1px solid " + tokens.color.border },
+};
+
+function formatC2(value) {
+  return String(value ?? "").trim().slice(0, 73);
+}
+
+export function C2({ label = "c2", hint, items = 10, children }) {
+  const [hover, setHover] = useState(false);
+  const text = useMemo(() => formatC2(label), [label]);
+  const rows = [];
+  for (let i = 0; i < items; i++) {
+    rows.push(jsx("li", { style: styles.item, children: text + " #" + i }, i));
+  }
+  return jsxs("div", {
+    "data-ui": "c2",
+    style: { ...styles.root, opacity: hover ? 0.9 : 1 },
+    onMouseEnter: () => setHover(true),
+    onMouseLeave: () => setHover(false),
+    children: [
+      jsx("span", { style: styles.label, children: text }),
+      hint ? jsx("span", { style: styles.hint, children: hint }) : null,
+      jsx(C0, { label: text + " / c0" }),
+      jsx(C1, { label: text + " / c1" }),
+      jsx("ul", { children: rows }),
+      children,
+    ],
+  });
+}

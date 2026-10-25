@@ -1,0 +1,20 @@
+{
+  "name": "turbopack-dev-perf-repro",
+  "private": true,
+  "scripts": {
+    "dev": "next dev"
+  },
+  "dependencies": {
+    "next": "16.5.0-canary.27",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "@repro/ui": "file:./packages/ui",
+    "@repro/shared": "file:./packages/shared",
+    "@repro/heavy-0": "file:./packages/heavy-0",
+    "@repro/heavy-1": "file:./packages/heavy-1",
+    "@repro/heavy-2": "file:./packages/heavy-2",
+    "@repro/heavy-3": "file:./packages/heavy-3",
+    "@repro/heavy-4": "file:./packages/heavy-4",
+    "@repro/heavy-5": "file:./packages/heavy-5"
+  }
+}
