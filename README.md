@@ -85,7 +85,7 @@ does not (fixed upstream by `vercel/next.js#99940`, backported to 16.4.2).
 ### Shorter import variable names in development
 
 `next-swc` built from source at `16.5.0-canary.27`, without and with
-[the fix](https://github.com/vjeux/next.js/pulls) (`build-native-release`), two runs each:
+[the fix](https://github.com/vjeux/next.js/pull/2) (`build-native-release`), two runs each:
 
 | | Base | With the fix |
 | --- | --- | --- |
